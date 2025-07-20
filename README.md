@@ -8,6 +8,7 @@ make sure you have these installed on your machine:
 
 - Node.js (version 18 or newer)
 - npm (usually comes with Node.js)
+- SQLite3 (required for the clients service database)
 - Your favorite code editor (we recommend VS Code)
 
 ## 📁 Project Overview
