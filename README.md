@@ -147,17 +147,20 @@ Here are the environment settings you'll need:
 ### api-gateway/.env
 
 ```
-NODE_ENV=development
-PORT=3000
-CLIENTS_SERVICE_URL=http://localhost:3001
+# API Gateway Configuration
+PORT='3000'
+HOST='localhost'
+
+# Microservices Configuration
+SVC_CLIENTS_HOST=localhost
+SVC_CLIENTS_PORT=3001
 ```
 
 ### svc-clients/.env
 
 ```
-NODE_ENV=development
-PORT=3001
-DB_PATH=./db/sql.db
+PORT='3001'
+HOST='localhost'
 ```
 
 ### ui-clients/src/environments/environment.ts
