@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - CLIENTS_SERVICE_URL=http://svc-clients:3001
+    depends_on:
+      - svc-clients
+
+  svc-clients:
+    build:
+      context: ./svc-clients
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./svc-clients/db:/app/db
+
+  ui-clients:
+    build:
+      context: ./ui-clients
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - api-gateway
+
+networks:
+  default:
+    name: my-demo-network
